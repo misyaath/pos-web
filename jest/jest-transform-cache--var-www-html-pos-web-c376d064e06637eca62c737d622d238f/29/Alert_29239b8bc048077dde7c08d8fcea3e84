@@ -1,0 +1,7 @@
+/* istanbul ignore next */"use strict";Object.defineProperty(exports, "__esModule", { value: true });var _jsxFileName = "/var/www/html/pos-web/src/components/Alert.js";exports.default =
+
+Alert;var /* istanbul ignore next */_react = require("react"); /* istanbul ignore next */var _react2 = _interopRequireDefault(_react);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function Alert(props) {
+  const alerts = props.message.map(message =>
+  /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */"div", /* istanbul ignore next */{ key: message, style: { display: props.display }, className: "alert alert-danger", role: "alert", __source: { fileName: _jsxFileName, lineNumber: 5 }, __self: this }, message));
+  return alerts;
+}

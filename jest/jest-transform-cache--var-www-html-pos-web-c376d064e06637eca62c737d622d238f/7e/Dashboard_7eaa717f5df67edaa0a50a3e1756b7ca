@@ -1,0 +1,13 @@
+/* istanbul ignore next */'use strict';Object.defineProperty(exports, "__esModule", { value: true });var _jsxFileName = '/var/www/html/pos-web/src/Dashboard.js';exports.default =
+
+
+Dashboard;var /* istanbul ignore next */_react = require('react'); /* istanbul ignore next */var _react2 = _interopRequireDefault(_react);var /* istanbul ignore next */_axios = require('axios'); /* istanbul ignore next */var _axios2 = _interopRequireDefault(_axios);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function Dashboard() {
+  /* istanbul ignore next */(0, /* istanbul ignore next */_react. /* istanbul ignore next */useEffect)(() => {
+    /* istanbul ignore next */_axios2. /* istanbul ignore next */default.get('/testUsers').then(response => {
+      // console.log(response)
+    });
+  });
+  return (
+    /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'h1', /* istanbul ignore next */{ __source: { fileName: _jsxFileName, lineNumber: 11 }, __self: this }, /* istanbul ignore next */'Dahsboard'));
+
+}

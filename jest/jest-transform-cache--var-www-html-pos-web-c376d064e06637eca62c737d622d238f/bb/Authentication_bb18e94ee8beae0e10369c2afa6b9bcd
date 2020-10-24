@@ -1,0 +1,25 @@
+/* istanbul ignore next */'use strict';Object.defineProperty(exports, "__esModule", { value: true });var /* istanbul ignore next */_axios = require('axios'); /* istanbul ignore next */var _axios2 = _interopRequireDefault(_axios);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+
+class Authentication {/* istanbul ignore next */constructor() {this.
+    login = response => {
+      if (response.data.token !== undefined) {
+        localStorage.setItem('token', response.data.token);
+        localStorage.setItem('user', JSON.stringify(response.data.user));
+        /* istanbul ignore next */_axios2. /* istanbul ignore next */default.defaults.headers.common['Authorization'] = 'Bearer ' + response.data.token;
+        return true;
+      }
+      return false;
+    };this.
+
+    isAuthenticated = () => {
+      const token = localStorage.getItem('token');
+      return token !== null;
+    };this.
+    removeLogins = () => {
+      localStorage.removeItem('token');
+      localStorage.removeItem('user');
+    };this.
+    logout = history => {
+      this.removeLogins();
+      history.push('login');
+    };}} /* istanbul ignore next */exports.default = Authentication;

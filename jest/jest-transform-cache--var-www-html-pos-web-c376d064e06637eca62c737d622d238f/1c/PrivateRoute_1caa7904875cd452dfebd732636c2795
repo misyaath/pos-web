@@ -1,0 +1,33 @@
+/* istanbul ignore next */"use strict";Object.defineProperty(exports, "__esModule", { value: true });var _jsxFileName = "/var/www/html/pos-web/src/app/PrivateRoute.js";var /* istanbul ignore next */_react = require("react"); /* istanbul ignore next */var _react2 = _interopRequireDefault(_react);
+var /* istanbul ignore next */_reactRouterDom = require("react-router-dom");
+var /* istanbul ignore next */_propTypes = require("prop-types"); /* istanbul ignore next */var _propTypes2 = _interopRequireDefault(_propTypes);
+var /* istanbul ignore next */_AuthContext = require("./AuthContext"); /* istanbul ignore next */var _AuthContext2 = _interopRequireDefault(_AuthContext);
+var /* istanbul ignore next */_Login = require("../Login"); /* istanbul ignore next */var _Login2 = _interopRequireDefault(_Login);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _objectWithoutProperties(obj, keys) {var target = {};for (var i in obj) {if (keys.indexOf(i) >= 0) continue;if (!Object.prototype.hasOwnProperty.call(obj, i)) continue;target[i] = obj[i];}return target;}
+
+function PrivateRoute( /* istanbul ignore next */_ref) {/* istanbul ignore next */let { component: Component, scopes } = _ref,rest = _objectWithoutProperties(_ref, ["component", "scopes"]);
+  return (
+    /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */ /* istanbul ignore next */_AuthContext2. /* istanbul ignore next */default.Consumer, /* istanbul ignore next */{ __source: { fileName: _jsxFileName, lineNumber: 9 }, __self: this },
+      auth =>
+      /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */_reactRouterDom. /* istanbul ignore next */Route, /* istanbul ignore next */Object.assign({},
+      rest, {
+        render: props => {
+          if (!auth.isAuthenticated()) return (/* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */_Login2. /* istanbul ignore next */default, /* istanbul ignore next */{ auth: auth, __source: { fileName: _jsxFileName, lineNumber: 14 }, __self: this }));
+          return (/* istanbul ignore next */_react2.default.createElement(Component, /* istanbul ignore next */Object.assign({ auth: auth }, props, { __source: { fileName: _jsxFileName, lineNumber: 15 }, __self: this })));
+        }, __source: { fileName: _jsxFileName, lineNumber: 11 }, __self: this }))));
+
+
+
+
+}
+
+PrivateRoute.propTypes = {
+  component: /* istanbul ignore next */_propTypes2. /* istanbul ignore next */default.func.isRequired,
+  auth: /* istanbul ignore next */_propTypes2. /* istanbul ignore next */default.object.isRequired,
+  scopes: /* istanbul ignore next */_propTypes2. /* istanbul ignore next */default.array };
+
+
+PrivateRoute.defaultProps = {
+  scopes: [] }; /* istanbul ignore next */exports.default =
+
+
+PrivateRoute;

@@ -1,0 +1,129 @@
+/* istanbul ignore next */'use strict';Object.defineProperty(exports, "__esModule", { value: true });var _jsxFileName = '/var/www/html/pos-web/src/Login.js';exports.default =
+
+
+
+
+
+
+
+
+
+
+Login;var /* istanbul ignore next */_react = require('react'); /* istanbul ignore next */var _react2 = _interopRequireDefault(_react);var /* istanbul ignore next */_free = require('@coreui/icons/sprites/free.svg'); /* istanbul ignore next */var _free2 = _interopRequireDefault(_free);var /* istanbul ignore next */_axios = require('axios'); /* istanbul ignore next */var _axios2 = _interopRequireDefault(_axios);var /* istanbul ignore next */_validator = require('validator'); /* istanbul ignore next */var _validator2 = _interopRequireDefault(_validator);var /* istanbul ignore next */_Alert = require('./components/Alert'); /* istanbul ignore next */var _Alert2 = _interopRequireDefault(_Alert);var /* istanbul ignore next */_ErrorResponse = require('./app/ErrorResponse'); /* istanbul ignore next */var _ErrorResponse2 = _interopRequireDefault(_ErrorResponse);var /* istanbul ignore next */_reactRouterDom = require('react-router-dom');var /* istanbul ignore next */_Button = require('./components/Button'); /* istanbul ignore next */var _Button2 = _interopRequireDefault(_Button);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function Login({ auth }) {
+  let history = /* istanbul ignore next */(0, /* istanbul ignore next */_reactRouterDom. /* istanbul ignore next */useHistory)();
+  const [email, setEmail] = /* istanbul ignore next */(0, /* istanbul ignore next */_react. /* istanbul ignore next */useState)('');
+  const [password, setPassword] = /* istanbul ignore next */(0, /* istanbul ignore next */_react. /* istanbul ignore next */useState)('');
+  const [validationError, setValidationError] = /* istanbul ignore next */(0, /* istanbul ignore next */_react. /* istanbul ignore next */useState)([]);
+  const [loading, setLoading] = /* istanbul ignore next */(0, /* istanbul ignore next */_react. /* istanbul ignore next */useState)(false);
+
+  /* istanbul ignore next */(0, /* istanbul ignore next */_react. /* istanbul ignore next */useEffect)(() => {
+    if (auth.isAuthenticated()) {
+      history.push('/');
+    }
+    document.body.classList.add('flex-row');
+    document.body.classList.add('align-items-center');
+  });
+
+  const validateFields = () => {
+    const validationErrors = [];
+    setValidationError([]);
+    if ( /* istanbul ignore next */_validator2. /* istanbul ignore next */default.isEmpty(email)) {
+      setValidationError(prevState => [...prevState, 'Email is required']);
+      validationErrors.push('email_empty_error');
+    }
+    if (! /* istanbul ignore next */_validator2. /* istanbul ignore next */default.isEmail(email)) {
+      setValidationError(prevState => [...prevState, 'Invalid Email']);
+      validationErrors.push('invalid_email_error');
+    }
+    if ( /* istanbul ignore next */_validator2. /* istanbul ignore next */default.isEmpty(password)) {
+      setValidationError(prevState => [...prevState, 'Password is required']);
+      validationErrors.push('password_empty_error');
+    }
+    return validationErrors;
+  };
+
+  const onSubmitHandler = () => {
+
+    setLoading(true);
+    const validationErrors = validateFields();
+
+    if (validationErrors.length === 0) {
+      /* istanbul ignore next */_axios2. /* istanbul ignore next */default.post('/login', {
+        email,
+        password,
+        device_name: 'browser' }).
+      then(response => {
+        const login = auth.login(response.data);
+        if (login) {
+          history.push("/");
+        } else {
+          setValidationError(prevState => [...prevState, 'Unable to Login Try again']);
+        }
+        setLoading(false);
+      }).catch(errors => {
+        if (errors.response !== undefined) {
+          setValidationError( /* istanbul ignore next */(0, /* istanbul ignore next */_ErrorResponse2. /* istanbul ignore next */default)(errors.response.data));
+        }
+        setLoading(false);
+      });
+    } else {
+      setLoading(false);
+    }
+  };
+
+  return (
+    /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'div', /* istanbul ignore next */{ className: 'container', __source: { fileName: _jsxFileName, lineNumber: 75 }, __self: this },
+      /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'div', /* istanbul ignore next */{ className: 'row justify-content-center', __source: { fileName: _jsxFileName, lineNumber: 76 }, __self: this },
+        /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'div', /* istanbul ignore next */{ className: 'col-md-8', __source: { fileName: _jsxFileName, lineNumber: 77 }, __self: this },
+          /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */_Alert2. /* istanbul ignore next */default, /* istanbul ignore next */{ display: validationError.length === 0 ? 'none' : 'block', message: validationError, __source: { fileName: _jsxFileName, lineNumber: 78 }, __self: this }),
+          /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'div', /* istanbul ignore next */{ className: 'card-group', __source: { fileName: _jsxFileName, lineNumber: 79 }, __self: this },
+            /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'div', /* istanbul ignore next */{ className: 'card p-4', __source: { fileName: _jsxFileName, lineNumber: 80 }, __self: this },
+              /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'div', /* istanbul ignore next */{ className: 'card-body', __source: { fileName: _jsxFileName, lineNumber: 81 }, __self: this },
+                /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'h1', /* istanbul ignore next */{ __source: { fileName: _jsxFileName, lineNumber: 82 }, __self: this }, /* istanbul ignore next */'Login'),
+                /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'p', /* istanbul ignore next */{ className: 'text-muted', __source: { fileName: _jsxFileName, lineNumber: 83 }, __self: this }, /* istanbul ignore next */'Sign In to your account'),
+                /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'div', /* istanbul ignore next */{ className: 'input-group mb-3', __source: { fileName: _jsxFileName, lineNumber: 84 }, __self: this },
+                  /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'div', /* istanbul ignore next */{ className: 'input-group-prepend', __source: { fileName: _jsxFileName, lineNumber: 85 }, __self: this }, /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'span', /* istanbul ignore next */{ className: 'input-group-text', __source: { fileName: _jsxFileName, lineNumber: 85 }, __self: this },
+                      /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'svg', /* istanbul ignore next */{ className: 'c-icon', __source: { fileName: _jsxFileName, lineNumber: 86 }, __self: this },
+                        /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'use', /* istanbul ignore next */{ xlinkHref: /* istanbul ignore next */_free2. /* istanbul ignore next */default, __source: { fileName: _jsxFileName, lineNumber: 87 }, __self: this })))),
+
+                  /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'input', /* istanbul ignore next */{ className: 'form-control', type: 'email', required: true, placeholder: 'Username', name: 'email',
+                    onChange: e => {
+                      setEmail(e.target.value);
+                    }, __source: { fileName: _jsxFileName, lineNumber: 89 }, __self: this })),
+
+                /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'div', /* istanbul ignore next */{ className: 'input-group mb-4', __source: { fileName: _jsxFileName, lineNumber: 94 }, __self: this },
+                  /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'div', /* istanbul ignore next */{ className: 'input-group-prepend', __source: { fileName: _jsxFileName, lineNumber: 95 }, __self: this }, /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'span', /* istanbul ignore next */{ className: 'input-group-text', __source: { fileName: _jsxFileName, lineNumber: 95 }, __self: this },
+                      /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'svg', /* istanbul ignore next */{ className: 'c-icon', __source: { fileName: _jsxFileName, lineNumber: 96 }, __self: this },
+                        /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'use', /* istanbul ignore next */{ xlinkHref: /* istanbul ignore next */_free2. /* istanbul ignore next */default, __source: { fileName: _jsxFileName, lineNumber: 97 }, __self: this })))),
+
+                  /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'input', /* istanbul ignore next */{ className: 'form-control', type: 'password', placeholder: 'Password', name: 'password',
+                    onChange: e => {
+                      setPassword(e.target.value);
+                    }, __source: { fileName: _jsxFileName, lineNumber: 99 }, __self: this })),
+
+                /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'div', /* istanbul ignore next */{ className: 'row', __source: { fileName: _jsxFileName, lineNumber: 104 }, __self: this },
+                  /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'div', /* istanbul ignore next */{ className: 'col-6', __source: { fileName: _jsxFileName, lineNumber: 105 }, __self: this },
+                    /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */_Button2. /* istanbul ignore next */default, /* istanbul ignore next */{ onClickHandler: onSubmitHandler, text: 'Login', loading: loading, __source: { fileName: _jsxFileName, lineNumber: 106 }, __self: this })),
+
+                  /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'div', /* istanbul ignore next */{ className: 'col-6 text-right', __source: { fileName: _jsxFileName, lineNumber: 108 }, __self: this },
+                    /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'button', /* istanbul ignore next */{ className: 'btn btn-link px-0', type: 'button', __source: { fileName: _jsxFileName, lineNumber: 109 }, __self: this }, /* istanbul ignore next */'Forgot password?'))))),
+
+
+
+
+            /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'div', /* istanbul ignore next */{ className: 'card text-white bg-primary py-5 d-md-down-none', style: { width: '44%' }, __source: { fileName: _jsxFileName, lineNumber: 114 }, __self: this },
+              /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'div', /* istanbul ignore next */{ className: 'card-body text-center', __source: { fileName: _jsxFileName, lineNumber: 115 }, __self: this },
+                /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'div', /* istanbul ignore next */{ __source: { fileName: _jsxFileName, lineNumber: 116 }, __self: this },
+                  /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'h2', /* istanbul ignore next */{ __source: { fileName: _jsxFileName, lineNumber: 117 }, __self: this }, /* istanbul ignore next */'Sign up'),
+                  /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'p', /* istanbul ignore next */{ __source: { fileName: _jsxFileName, lineNumber: 118 }, __self: this }, /* istanbul ignore next */'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'),
+
+                  /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'button', /* istanbul ignore next */{ className: 'btn btn-lg btn-outline-light mt-3', type: 'button', __source: { fileName: _jsxFileName, lineNumber: 120 }, __self: this }, /* istanbul ignore next */'Register Now!')))))))));
+
+
+
+
+
+
+
+
+}

@@ -1,0 +1,25 @@
+/* istanbul ignore next */'use strict';Object.defineProperty(exports, "__esModule", { value: true });var _jsxFileName = '/var/www/html/pos-web/src/App.js';exports.default =
+
+
+
+
+
+
+
+App;var /* istanbul ignore next */_react = require('react'); /* istanbul ignore next */var _react2 = _interopRequireDefault(_react); /* istanbul ignore next */require('../dist/css/style.css');var /* istanbul ignore next */_reactRouterDom = require('react-router-dom');var /* istanbul ignore next */_Authentication = require('./app/Authentication'); /* istanbul ignore next */var _Authentication2 = _interopRequireDefault(_Authentication);var /* istanbul ignore next */_AuthContext = require('./app/AuthContext'); /* istanbul ignore next */var _AuthContext2 = _interopRequireDefault(_AuthContext);var /* istanbul ignore next */_PrivateRoute = require('./app/PrivateRoute'); /* istanbul ignore next */var _PrivateRoute2 = _interopRequireDefault(_PrivateRoute);var /* istanbul ignore next */_Dashboard = require('./Dashboard'); /* istanbul ignore next */var _Dashboard2 = _interopRequireDefault(_Dashboard);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function App() {
+
+  /* istanbul ignore next */(0, /* istanbul ignore next */_react. /* istanbul ignore next */useEffect)(() => {
+    document.body.classList.add('c-app');
+  });
+
+  const auth = new /* istanbul ignore next */_Authentication2. /* istanbul ignore next */default();
+  return (
+    /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */_reactRouterDom. /* istanbul ignore next */BrowserRouter, /* istanbul ignore next */{ __source: { fileName: _jsxFileName, lineNumber: 17 }, __self: this },
+      /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */ /* istanbul ignore next */_AuthContext2. /* istanbul ignore next */default.Provider, /* istanbul ignore next */{ value: auth, __source: { fileName: _jsxFileName, lineNumber: 18 }, __self: this },
+        /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */_PrivateRoute2. /* istanbul ignore next */default, /* istanbul ignore next */{ path: '/', component: /* istanbul ignore next */_Dashboard2. /* istanbul ignore next */default, auth: auth, __source: { fileName: _jsxFileName, lineNumber: 19 }, __self: this }))));
+
+
+
+
+
+}

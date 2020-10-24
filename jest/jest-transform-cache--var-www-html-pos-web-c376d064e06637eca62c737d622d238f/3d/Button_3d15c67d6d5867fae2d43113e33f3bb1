@@ -1,0 +1,19 @@
+/* istanbul ignore next */'use strict';Object.defineProperty(exports, "__esModule", { value: true });var _jsxFileName = '/var/www/html/pos-web/src/components/Button.js';exports.default =
+
+
+Button;var /* istanbul ignore next */_react = require('react'); /* istanbul ignore next */var _react2 = _interopRequireDefault(_react);var /* istanbul ignore next */_propTypes = require('prop-types'); /* istanbul ignore next */var _propTypes2 = _interopRequireDefault(_propTypes);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function Button({ onClickHandler, loading, text }) {
+  return (
+    loading ?
+    /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'button', /* istanbul ignore next */{ className: 'btn btn-primary', type: 'button', disabled: /* istanbul ignore next */true, __source: { fileName: _jsxFileName, lineNumber: 7 }, __self: this },
+      /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'span', /* istanbul ignore next */{ className: 'spinner-grow spinner-grow-sm', role: 'status', /* istanbul ignore next */'aria-hidden': 'true', __source: { fileName: _jsxFileName, lineNumber: 8 }, __self: this }), /* istanbul ignore next */'Loading...') :
+
+
+
+    /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'button', /* istanbul ignore next */{ onClick: onClickHandler, className: 'btn btn-primary px-4', type: 'button', __source: { fileName: _jsxFileName, lineNumber: 12 }, __self: this }, text));
+
+}
+
+Button.propTypes = {
+  onClickHandler: /* istanbul ignore next */_propTypes2. /* istanbul ignore next */default.func.isRequired,
+  loading: /* istanbul ignore next */_propTypes2. /* istanbul ignore next */default.bool.isRequired,
+  text: /* istanbul ignore next */_propTypes2. /* istanbul ignore next */default.string.isRequired };
